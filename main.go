@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	db, err := geoip2.Open("GeoIP2-City.mmdb")
+	db, err := geoip2.Open("/home/tamal/Downloads/1a/geoip/GeoLite2-Country_20201124/GeoLite2-City.mmdb")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -19,6 +19,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Printf("City name: %v\n", record.City.Names["en"])
 	fmt.Printf("Portuguese (BR) city name: %v\n", record.City.Names["pt-BR"])
 	if len(record.Subdivisions) > 0 {
 		fmt.Printf("English subdivision name: %v\n", record.Subdivisions[0].Names["en"])
